@@ -25,7 +25,7 @@ for i in range(n):
                 arr[0][j] = 2
             arr[2][j] += 1
 
-            if arr[2][j] == arr[1][j] == 2:
+            if arr[2][j] >= 2 and arr[1][j] >= 2:
                 arr[0][j] = 3
         location = ran - 1
 
@@ -37,7 +37,7 @@ for i in range(n):
                 arr[0][j] = 1
             arr[1][j] += 1
 
-            if arr[2][j] == arr[1][j] == 2:
+            if arr[2][j] >= 2 and arr[1][j] >= 2:
                 arr[0][j] = 3
         location = ran
 
