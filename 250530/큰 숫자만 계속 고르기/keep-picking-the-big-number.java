@@ -8,16 +8,18 @@ public class Main {
 
         int N = sc.nextInt();
         int M = sc.nextInt();
-        int[] nums = new int[N];
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
         for (int i = 0; i < N; i++) {
-            nums[i] = sc.nextInt();
+            pq.add(sc.nextInt() * -1);
         }
         for (int i = 0; i < M; i++) {
-            Arrays.sort(nums);
-            nums[N-1]--;
+            int max = pq.poll();
+            max = (max * -1) -1;
+            pq.add(max * -1);
         }
-        Arrays.sort(nums);
-        System.out.println(nums[N-1]);
+        System.out.println(-pq.peek());
 
 
 
