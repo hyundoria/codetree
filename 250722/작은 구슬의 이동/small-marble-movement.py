@@ -4,7 +4,7 @@ r, c = int(r), int(c)
 
 # Please write your code here.
 
-move = [[0,1],[1,0],[0,-1],[-1,0]]
+move = [[-1,0],[0,1],[1,0],[0,-1]]
 
 num = 0
 
@@ -17,8 +17,8 @@ elif d == 'L':
 
 for _ in range(t):
 
-    nx = r + move[num][1]
-    ny = c + move[num][0]
+    nx = r + move[num][0]
+    ny = c + move[num][1]
 
     if nx < 1 or nx > n or ny < 1 or ny > n:
         num = (num + 2) % 4
