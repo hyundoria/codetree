@@ -16,7 +16,7 @@ for _ in range(m):
         nx = r + dx
         ny = c + dy
 
-        if nx < 0 or nx >= n or ny < 0 or nx >= n:
+        if nx < 0 or nx >= n or ny < 0 or ny >= n:
             continue
 
         if arr[nx][ny] == 1:
