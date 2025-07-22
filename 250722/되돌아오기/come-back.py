@@ -26,3 +26,5 @@ for _ in range(n):
             print(sec)
             exit(0)
         x, y = dx, dy
+
+print(-1)
