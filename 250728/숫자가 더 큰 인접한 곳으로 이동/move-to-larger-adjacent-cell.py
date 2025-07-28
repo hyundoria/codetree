@@ -22,7 +22,7 @@ def big(x,y):
             nx = x+dx
             ny = y+dy
 
-            if 0 <= nx < n and 0 <= ny < n:
+            if 1 <= nx <= n and 1 <= ny <= n:
 
                 if a[nx][ny] > a[x][y]:
                     ans.append(a[nx][ny])
