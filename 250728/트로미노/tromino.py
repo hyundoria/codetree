@@ -13,7 +13,7 @@ for i in range(n-1):
 
         for dx, dy in dxy:
 
-            sub = q - arr[i + dx][i + dy]
+            sub = q - arr[i + dx][j + dy]
 
             val = max(sub, val)
 
