@@ -1,48 +1,55 @@
 n, m, t = map(int, input().split())
+
+# Create n x n grid
 a = [list(map(int, input().split())) for _ in range(n)]
-cnt = [[0] * n for _ in range(n)]
+
+# Get m marble positions
+marbles = []
 
 for _ in range(m):
-    x, y = map(int, input().split())
-    cnt[x-1][y-1] = 1
 
-dxy = [(-1,0), (1,0), (0,-1), (0,1)]
+    x,y = map(int, input().split())
+    marbles.append((x-1,y-1))
 
-def in_range(x, y):
-    return 0 <= x < n and 0 <= y < n
+def big():
 
-def move(x, y) -> tuple[int, int]:
-    ans_max = 0
-    ans_x, ans_y = -1, -1
+    move = [[-1,0],[1,0],[0,-1],[0,1]]
 
-    for dx, dy in dxy:
-        nx, ny = x + dx, y + dy
-        if in_range(nx, ny) and a[nx][ny] > ans_max:
-            ans_max = a[nx][ny]
-            ans_x, ans_y = nx, ny
+    for _ in range(t):
 
-    return ans_x, ans_y
+        cnt = [[0] * n for _ in range(n)]
+        new_marbles = []
 
-for _ in range(t):
+        for marble in marbles:
 
-    next_cnt = [[0] * n for _ in range(n)]
+            r,c = marble
 
-    for i in range(n):
-        for j in range(n):
-            if  cnt[i][j] > 0:
-                nx, ny = move(i,j)
-                next_cnt[nx][ny] += 1
+            max_val = 0
+            mx, my = r,c
 
-    for i in range(n):
-        for j in range(n):
-            cnt[i][j] = next_cnt[i][j]
-            if cnt[i][j] >= 2:
-                cnt[i][j] = 0
+            for dx, dy in move:
 
-ans  = 0
+                nx = r+dx
+                ny = c+dy
 
-for i in range(n):
-    for j in range(n):
-        ans += cnt[i][j]
+                if 0 <= nx < n and 0 <= ny < n:
 
-print(ans)
+                    if a[nx][ny] > max_val:
+                        max_val = a[nx][ny]
+                        mx, my = nx, ny
+
+            new_marbles.append((mx,my))
+            cnt[mx][my] += 1
+
+        marbles.clear()
+
+        for mar in new_marbles:
+            x,y = mar
+            if cnt[x][y] == 1:
+                marbles.append((x,y))
+
+    print(len(marbles))
+
+big()
+
+
