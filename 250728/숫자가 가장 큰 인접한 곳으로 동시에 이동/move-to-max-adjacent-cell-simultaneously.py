@@ -4,7 +4,14 @@ n, m, t = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
 
 # Get m marble positions
-marbles = [tuple(map(int, input().split())) for _ in range(m)]
+marbles = []
+
+for _ in range(m):
+
+    x,y = map(int, input().split())
+    x -= 1
+    y -= 1
+    marbles.append((x,y))
 
 
 def big():
@@ -19,11 +26,9 @@ def big():
         for marble in marbles:
 
             r,c = marble
-            r = r-1
-            c = c-1
 
             max_val = a[r][c]
-            mx = my = r,c
+            mx, my = r,c
 
             for dx, dy in move:
 
