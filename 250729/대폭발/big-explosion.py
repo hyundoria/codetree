@@ -7,7 +7,7 @@ arr[r-1][c-1] = 1
 dxy = [[-1,0],[1,0],[0,1],[0,-1]]
 
 
-for d in range(1, m+1):
+for d in range(m):
 
     new_arr = [[0] * n for _ in range(n)]
 
@@ -19,8 +19,8 @@ for d in range(1, m+1):
 
                 for dx, dy in dxy:
 
-                    nx = i + (dx*d)
-                    ny = j + (dy*d)
+                    nx = i + (dx* (2**d))
+                    ny = j + (dy* (2**d))
 
                     if 0 <= nx < n and 0 <= ny < n:
                         new_arr[nx][ny] = 1
