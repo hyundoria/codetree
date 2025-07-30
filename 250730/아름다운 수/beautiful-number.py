@@ -33,7 +33,7 @@ def get(num):
         return
 
 
-    for i in range(1, n+1):
+    for i in range(1, 5):
         ans.append(i)
         get(num+1)
         ans.pop()
