@@ -4,7 +4,7 @@ n, m = map(int, input().split())
 
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-visited = [[False] * n for _ in range(m)]
+visited = [[False] * m for _ in range(n)]
 
 dxy = [[1,0],[0,1]]
 
